@@ -1,3 +1,4 @@
+#Option 8
 def removeEveryOtherChar():
     with open("a", mode='r+') as f:
         content = f.read()
@@ -14,5 +15,3 @@ def removeEveryOtherChar():
                 contentUpdated += char
         f.write(contentUpdated)
         f.close
-
-removeEveryOtherChar()
