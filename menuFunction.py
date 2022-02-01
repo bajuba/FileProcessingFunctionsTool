@@ -1,12 +1,5 @@
 import tools
 
-#Chooses which file to change, creates empty file if file does not exist
-def chooseFile():
-    file = input("\nWhat file would you like to change?\n")
-    my_file = open(file, "a")
-    my_file.close()
-    return file
-
 #Menu description
 menuOptions = {
     1: "Choose a different file to change",
@@ -41,7 +34,7 @@ menuOptions = {
 def menuUse(choice, filename):
     while choice != "q":
         if choice == "1":
-            chooseFile()
+            tools.chooseFile()
         elif choice == "2":
             print("In Progress")
         elif choice == "3":
@@ -97,15 +90,20 @@ def menuUse(choice, filename):
             exit()
         else:
             print("Please enter a valid response.")
+        printMenu()
         choice = input("\nWhat would you like to do?")
 
-#Menu Start
-def menu():
-    print("\nChoose how you would like to use your files.")
-    filename = chooseFile()
+#Prints all menu Options
+def printMenu():
     #For each key value pair in the menuOptions dictionary, print it out
     for key in menuOptions.keys():
         print (key, '--', menuOptions[key] )
     print("Enter 'q' to quit." )
-    choice = input("\nWhat would you like to do?")
+
+#Menu Start
+def menu():
+    print("\nChoose how you would like to use your files.")
+    filename = tools.chooseFile()
+    printMenu()
+    choice = input("\nWhat would you like to do?\n")
     menuUse(choice, filename)
