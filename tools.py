@@ -1,7 +1,6 @@
 #Option 8
-def removeEveryOtherChar():
-    file = input("What file would you like to remove every other character from?")
-    with open(file, mode='r+') as f:
+def removeEveryOtherChar(filename):
+    with open(filename, mode='r+') as f:
         content = f.read()
         f.truncate(0)
         f.seek(0)

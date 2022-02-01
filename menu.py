@@ -1,6 +1,8 @@
 import tools
 
-def menuUse(choice):
+def menuUse(choice, filename):
+    if choice != "q":
+        menu()
     if choice == "1":
         print("In Progress")
     elif choice == "2":
@@ -16,7 +18,7 @@ def menuUse(choice):
     elif choice == "7":
         print("In Progress")
     elif choice == "8":
-        tools.removeEveryOtherChar()
+        tools.removeEveryOtherChar(filename)
     elif choice == "9":
         print("In Progress")
     elif choice == "10":
@@ -85,6 +87,11 @@ def menu():
     print("24. combine two files")
     print("25. separate the file into two files")
     print("26. add your own idea")
-    choice = input("What would you like to do?")
-    menuUse(choice)
-
+    print("Enter 'q' to quit." )
+    choice = input("\nWhat would you like to do?")
+    if choice != "q":
+        filename = input("\nWhat file would you like to change?")
+        menuUse(choice, filename)
+    else:
+        print("\nI hope your problem has been solved!")
+    
