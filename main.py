@@ -1,4 +1,4 @@
-import tools, menu
+import tools, menuFunction
 
-menu.menu()
+menuFunction.menu()
 
