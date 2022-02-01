@@ -55,8 +55,6 @@ def menuUse(choice, filename):
         print("In Progress")
     elif choice == "26":
         print("In Progress")
-    else:
-        print("Please enter a valid response.")
 
 #Menu Start
 def menu():
@@ -91,7 +89,10 @@ def menu():
     choice = input("\nWhat would you like to do?")
     if choice != "q":
         filename = input("\nWhat file would you like to change?")
+        my_file = open(filename, "a")
+        my_file.close()
         menuUse(choice, filename)
-    else:
+    elif choice == "q":
         print("\nI hope your problem has been solved!")
-    
+    else:
+        print("Please enter a valid response.")
