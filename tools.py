@@ -1,10 +1,14 @@
+#file variable used in menuFunction and chooseFile
+filename = ""
+
 #Chooses which file to change, creates empty file if file does not exist
 #Option 1
 def chooseFile():
-    file = input("\nWhat file would you like to change?\n")
-    my_file = open(file, "a")
+    global filename
+    filename = input("\nWhat file would you like to change?\n")
+    my_file = open(filename, "a")
     my_file.close()
-    return file
+    return filename
 
 #Removes every other character from a text file
 #Option 8

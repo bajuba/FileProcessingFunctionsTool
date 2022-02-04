@@ -1,4 +1,4 @@
-import tools
+import tools 
 
 #Menu description
 menuOptions = {
@@ -31,7 +31,8 @@ menuOptions = {
 }
 
 #Menu functionality: Call functions here
-def menuUse(choice, filename):
+def menuUse(choice):
+    #Use tools.filename to access the most recent filename
     while choice != "q":
         if choice == "1":
             tools.chooseFile()
@@ -48,7 +49,7 @@ def menuUse(choice, filename):
         elif choice == "7":
             print("In Progress")
         elif choice == "8":
-            tools.removeEveryOtherChar(filename)
+            tools.removeEveryOtherChar(tools.filename)
         elif choice == "9":
             print("In Progress")
         elif choice == "10":
@@ -91,7 +92,7 @@ def menuUse(choice, filename):
         else:
             print("Please enter a valid response.")
         printMenu()
-        choice = input("\nWhat would you like to do?")
+        choice = input("\nWhat would you like to do?\n")
 
 #Prints all menu Options
 def printMenu():
@@ -103,7 +104,7 @@ def printMenu():
 #Menu Start
 def menu():
     print("\nChoose how you would like to use your files.")
-    filename = tools.chooseFile()
+    tools.chooseFile()
     printMenu()
     choice = input("\nWhat would you like to do?\n")
-    menuUse(choice, filename)
+    menuUse(choice)
