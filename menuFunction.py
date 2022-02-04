@@ -67,7 +67,7 @@ def menuUse(choice):
         elif choice == "16":
             print("In Progress")
         elif choice == "17":
-            print("In Progress")
+            tools.searchStr(tools.filename)
         elif choice == "18":
             print("In Progress")
         elif choice == "19":

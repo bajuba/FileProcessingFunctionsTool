@@ -28,3 +28,16 @@ def removeEveryOtherChar(filename):
                 contentUpdated += char
         f.write(contentUpdated)
         f.close
+
+#Search a file for a string
+# Option 17
+def searchStr(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
+        else:
+            print(f"\nFile {filename} does not contain '{phrase}'.\n")
+        f.close()
+            
