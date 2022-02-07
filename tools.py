@@ -122,3 +122,16 @@ Never gonna make you cry
 Never gonna say goodbye
 Never gonna tell a lie and hurt you"""
         f.write(lyrics)
+        f.close()
+
+#Remove every character except abc and spcae from file
+#Option 11
+def abcSpace(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        whitelist = set('abc ABC')
+        updated = ''.join(filter(whitelist.__contains__, content))
+        f.truncate(0)
+        f.write(updated)
+        f.close
+
