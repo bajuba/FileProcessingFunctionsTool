@@ -33,3 +33,4 @@ def removeSpaces(filename):
     lines = [line.replace(' ','') for line in lines]
     with open(filename, 'w') as f:
         f.writelines(lines)
+        f.close
