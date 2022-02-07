@@ -72,7 +72,7 @@ def menuUse(choice, filename):
         elif choice == "19":
             print("In Progress")
         elif choice == "20":
-            print("In Progress")
+            tools.rickAstley(filename)
         elif choice == "21":
             print("In Progress")
         elif choice == "22":
