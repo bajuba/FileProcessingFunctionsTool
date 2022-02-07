@@ -40,7 +40,7 @@ def menuUse(choice, filename):
         elif choice == "3":
             print("In Progress")
         elif choice == "4":
-            print("In Progress")
+            tools.removeSpaces(filename)
         elif choice == "5":
             print("In Progress")
         elif choice == "6":
