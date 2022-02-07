@@ -6,6 +6,20 @@ def chooseFile():
     my_file.close()
     return file
 
+#Capitalize all letters in file
+#Option 3
+def capitalizeAllLetters(filename):
+    with open(filename, mode='r+') as f:
+       content = f.read()
+       f.truncate(0)
+       f.seek(0)
+       contentUpdated = content.upper()
+       f.write(contentUpdated)
+       f.close
+        
+        
+        
+
 #Removes every other character from a text file
 #Option 8
 def removeEveryOtherChar(filename):
