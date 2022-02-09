@@ -42,15 +42,15 @@ def removeEveryOtherChar(filename):
 
 #Copy file
 #Option 23
-def chooseFile(filename):
-    file = open(filename, 'r')
-    try:
-        os.system('cls')#Clear console Windows
-    except:
-        os.system('clear')#Clear console Linux
-    filename2 = filename + "_new"
-    file2 = open(filename2, "w")
-    file2 = file
-    file.close()
-    file2.close()
-    print(f'The file "{filename}" was copied and the new file is called "{filename2}".')
+def copyFile(filename):
+    with open(filename, 'r') as file:
+        try:
+            os.system('cls')#Clear console Windows
+        except:
+            os.system('clear')#Clear console Linux
+        filename2 = filename + "_new"
+        file2 = open(filename2, "w")
+        file2 = file
+        file.close()
+        file2.close()
+        print(f'The file "{filename}" was copied and the new file is called "{filename2}".')
