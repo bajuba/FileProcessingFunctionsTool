@@ -17,7 +17,16 @@ def capitalizeAllLetters(filename):
        f.write(contentUpdated)
        f.close
         
-        
+#Remove all instances of the word 'the' from file
+#Option 5
+def removeThe(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        contentUpdated = content.replace("the", "")
+        f.write(contentUpdated)
+        f.close
         
 
 #Removes every other character from a text file

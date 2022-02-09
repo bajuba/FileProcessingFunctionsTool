@@ -42,7 +42,7 @@ def menuUse(choice, filename):
         elif choice == "4":
             print("In Progress")
         elif choice == "5":
-            print("In Progress")
+            tools.removeThe(filename)
         elif choice == "6":
             print("In Progress")
         elif choice == "7":
