@@ -58,7 +58,7 @@ def menuUse(choice, filename):
         elif choice == "12":
             print("In Progress")
         elif choice == "13":
-            print("In Progress")
+            tools.double_contiguous_numbers(filename)
         elif choice == "14":
             print("In Progress")
         elif choice == "15":
