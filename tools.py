@@ -38,3 +38,27 @@ def removeEveryOtherChar(filename):
                 contentUpdated += char
         f.write(contentUpdated)
         f.close
+
+
+
+# Doubles every contiguous number (2 or more int in a row, not same numbers)
+# Also Camel Casing for py?
+# Option 13
+def double_contiguous_numbers(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ""
+    digit_temp = ""
+    for char in file_raw:
+      if char.isdigit():
+        digit_temp += char
+      elif char.isdigit() == False:
+        if digit_temp != "":
+          digit_temp = int(digit_temp) * 2
+          content_updated += str(digit_temp)
+        digit_temp = ""
+        content_updated += str(char)
+    f.write(content_updated)
+    f.close
