@@ -55,8 +55,10 @@ def double_contiguous_numbers(filename):
       if char.isdigit():
         digit_temp += char
       elif char.isdigit() == False:
-        if digit_temp != "":
+        if digit_temp != "" and len(digit_temp)>1:
           digit_temp = int(digit_temp) * 2
+          content_updated += str(digit_temp)
+        elif digit_temp != "" and len(digit_temp)==1:
           content_updated += str(digit_temp)
         digit_temp = ""
         content_updated += str(char)
