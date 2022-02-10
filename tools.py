@@ -49,7 +49,6 @@ def removeEveryOtherChar(filename):
         f.close
 
 
-
 # Doubles every number, contiguous numbers are doubled as one number
 # Option 13
 def double_contiguous_numbers(filename):
@@ -67,6 +66,29 @@ def double_contiguous_numbers(filename):
           digit_temp = int(digit_temp) * 2
           content_updated += str(digit_temp)
         digit_temp = ""
+        content_updated += str(char)
+    f.write(content_updated)
+    f.close
+
+
+# Capitalize every third letter in the file
+# Option 12
+def capitalize_every_third(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ""
+    i = 0
+    for char in file_raw:
+      if char.isalpha():
+        i += 1
+        if i%3 == 0:
+          char = char.capitalize()
+          content_updated += str(char)
+        else:
+          content_updated += str(char)
+      else:
         content_updated += str(char)
     f.write(content_updated)
     f.close

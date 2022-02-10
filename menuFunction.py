@@ -56,7 +56,7 @@ def menuUse(choice, filename):
         elif choice == "11":
             print("In Progress")
         elif choice == "12":
-            print("In Progress")
+            tools.capitalize_every_third(filename)
         elif choice == "13":
             tools.double_contiguous_numbers(filename)
         elif choice == "14":
