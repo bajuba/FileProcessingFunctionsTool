@@ -1,10 +1,14 @@
+#file variable used in menuFunction and chooseFile
+filename = ""
+
 #Chooses which file to change, creates empty file if file does not exist
 #Option 1
 def chooseFile():
-    file = input("\nWhat file would you like to change?\n")
-    my_file = open(file, "a")
+    global filename
+    filename = input("\nWhat file would you like to change?\n")
+    my_file = open(filename, "a")
     my_file.close()
-    return file
+    return filename
 
 #Capitalize all letters in file
 #Option 3
@@ -48,6 +52,19 @@ def removeEveryOtherChar(filename):
         f.write(contentUpdated)
         f.close
 
+
+#Search a file for a string
+# Option 17
+def searchStr(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
+        else:
+            print(f"\nFile {filename} does not contain '{phrase}'.\n")
+        f.close()
+            
 
 
 # Doubles every contiguous number (2 or more int in a row, not same numbers)
