@@ -91,6 +91,7 @@ def menuUse(choice):
             exit()
         else:
             print("Please enter a valid response.")
+        input("Press enter to continue...")
         printMenu()
         choice = input("\nWhat would you like to do?\n")
 
