@@ -1,3 +1,5 @@
+
+import os
 from math import floor
 import random
 
@@ -55,6 +57,21 @@ def removeEveryOtherChar(filename):
         f.write(contentUpdated)
         f.close
 
+
+#Copy file
+#Option 23
+def copyFile(filename):
+    with open(filename, 'r') as file:
+        try:
+            os.system('cls')#Clear console Windows
+        except:
+            os.system('clear')#Clear console Linux
+        filename2 = filename + "_new"
+        file2 = open(filename2, "w")
+        file2 = file
+        file.close()
+        file2.close()
+        print(f'The file "{filename}" was copied and the new file is called "{filename2}".')
 
 # Doubles every contiguous number (2 or more int in a row, not same numbers)
 # Also Camel Casing for py?
