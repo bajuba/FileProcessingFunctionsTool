@@ -92,3 +92,18 @@ def capitalize_every_third(filename):
         content_updated += str(char)
     f.write(content_updated)
     f.close
+
+
+# Alphabetizes file by line
+# Option 16
+def alphabetize_file(filename):
+  with open(filename,'r+') as f:
+    sorted_lines = list()
+    for line in f:
+      sorted_lines.append(line.strip())  
+    sorted_lines.sort()
+    f.truncate(0)
+    f.seek(0)
+    for item in sorted_lines:
+      f.write(item + '\n')
+    f.close

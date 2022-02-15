@@ -64,7 +64,7 @@ def menuUse(choice, filename):
         elif choice == "15":
             print("In Progress")
         elif choice == "16":
-            print("In Progress")
+            tools.alphabetize_file(filename)
         elif choice == "17":
             print("In Progress")
         elif choice == "18":
