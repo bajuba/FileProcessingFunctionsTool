@@ -39,11 +39,11 @@ def menuUse(choice):
         elif choice == "2":
             print("In Progress")
         elif choice == "3":
-            tools.capitalizeAllLetters(filename)
+            tools.capitalizeAllLetters(tools.filename)
         elif choice == "4":
             print("In Progress")
         elif choice == "5":
-            tools.removeThe(filename)
+            tools.removeThe(tools.filename)
         elif choice == "6":
             print("In Progress")
         elif choice == "7":
@@ -59,7 +59,7 @@ def menuUse(choice):
         elif choice == "12":
             print("In Progress")
         elif choice == "13":
-            tools.double_contiguous_numbers(filename)
+            tools.double_contiguous_numbers(tools.filename)
         elif choice == "14":
             print("In Progress")
         elif choice == "15":
@@ -83,7 +83,7 @@ def menuUse(choice):
         elif choice == "24":
             print("In Progress")
         elif choice == "25":
-            print("In Progress")
+            tools.splitFile(tools.filename)
         elif choice == "26":
             print("In Progress")
         elif choice == "q":
