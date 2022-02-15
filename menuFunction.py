@@ -39,11 +39,11 @@ def menuUse(choice):
         elif choice == "2":
             print("In Progress")
         elif choice == "3":
-            print("In Progress")
+            tools.capitalizeAllLetters(filename)
         elif choice == "4":
             print("In Progress")
         elif choice == "5":
-            print("In Progress")
+            tools.removeThe(filename)
         elif choice == "6":
             print("In Progress")
         elif choice == "7":
@@ -59,7 +59,7 @@ def menuUse(choice):
         elif choice == "12":
             print("In Progress")
         elif choice == "13":
-            print("In Progress")
+            tools.double_contiguous_numbers(filename)
         elif choice == "14":
             print("In Progress")
         elif choice == "15":
@@ -91,6 +91,7 @@ def menuUse(choice):
             exit()
         else:
             print("Please enter a valid response.")
+        input("Press enter to continue...")
         printMenu()
         choice = input("\nWhat would you like to do?\n")
 
