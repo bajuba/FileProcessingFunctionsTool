@@ -30,9 +30,9 @@ def removeEveryOtherChar(filename):
         f.close
 
 #Search a file for a string
-# Option 17
+#Option 17
 def searchStr(filename):
-    with open(filename, mode='r+') as f:
+    with open(filename, mode='r') as f:
         content = f.read()
         phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
         if phrase in content:
