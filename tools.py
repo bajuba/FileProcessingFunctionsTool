@@ -38,3 +38,19 @@ def removeEveryOtherChar(filename):
                 contentUpdated += char
         f.write(contentUpdated)
         f.close
+
+
+
+
+#Replace every character in the file with it's ascii value
+#Option 10
+def replaceCharacterWithAscii(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        contentUpdated = ""
+        for char in content:
+            contentUpdated += str(ord(char)) + '\n'
+        f.write(contentUpdated)
+        f.close

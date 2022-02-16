@@ -52,6 +52,7 @@ def menuUse(choice, filename):
         elif choice == "9":
             print("In Progress")
         elif choice == "10":
+            tools.capitalizeAllLetters(tools.filename)
             print("In Progress")
         elif choice == "11":
             print("In Progress")
