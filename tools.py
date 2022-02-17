@@ -57,6 +57,16 @@ def removeEveryOtherChar(filename):
         f.write(contentUpdated)
         f.close
 
+#Replace all
+#Option 22
+def replaceAll():
+    with open(filename, 'r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        replace = input("Enter what you would like to replace this text with: \n")
+        f.write(replace)
+        f.close()
 
 #Copy file
 #Option 23
