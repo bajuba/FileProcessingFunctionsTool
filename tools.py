@@ -57,13 +57,29 @@ def removeEveryOtherChar(filename):
         f.write(contentUpdated)
         f.close
 
-#Replace all
-#Option 22
-def replaceAll():
+#Replace all for a specific string
+#Option 19
+def replaceString(filename):
     with open(filename, 'r+') as f:
         content = f.read()
-        f.truncate(0)
-        f.seek(0)
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            f.truncate(0)
+            f.seek(0)
+            replacement = input("\nEnter what you would like to replace the phrase with.\n")
+            contentUpdated = content.replace(phrase, replacement)
+            f.write(contentUpdated)
+            print(f"You have replaced {phrase} with {replacement}.\n")
+        else:
+            print("This string was not found in the file.")
+            f.seek(0)
+            f.close()
+
+
+#Replace all
+#Option 22
+def replaceAll(filename):
+    with open(filename, 'w') as f:
         replace = input("Enter what you would like to replace this text with: \n")
         f.write(replace)
         f.close()
@@ -115,8 +131,10 @@ def searchStr(filename):
         phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
         if phrase in content:
             print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
+            return True
         else:
             print(f"\nFile {filename} does not contain '{phrase}'.\n")
+            return False
         f.close()
 
 #Make file into two files
