@@ -41,7 +41,7 @@ def menuUse(choice):
         elif choice == "3":
             tools.capitalizeAllLetters(tools.filename)
         elif choice == "4":
-            print("In Progress")
+            tools.removeSpaces(filename)
         elif choice == "5":
             tools.removeThe(tools.filename)
         elif choice == "6":
