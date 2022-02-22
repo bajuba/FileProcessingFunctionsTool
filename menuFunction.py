@@ -41,7 +41,7 @@ def menuUse(choice):
         elif choice == "3":
             tools.capitalizeAllLetters(tools.filename)
         elif choice == "4":
-            tools.removeSpaces(filename)
+            tools.removeSpaces(tools.filename)
         elif choice == "5":
             tools.removeThe(tools.filename)
         elif choice == "6":
@@ -55,9 +55,9 @@ def menuUse(choice):
         elif choice == "10":
             print("In Progress")
         elif choice == "11":
-            tools.abcSpace(filename)
+            tools.abcSpace(tools.filename)
         elif choice == "12":
-            tools.capitalize_every_third(filename)
+            tools.capitalize_every_third(tools.filename)
         elif choice == "13":
             tools.double_contiguous_numbers(tools.filename)
         elif choice == "14":
@@ -65,7 +65,7 @@ def menuUse(choice):
         elif choice == "15":
             print("In Progress")
         elif choice == "16":
-            tools.alphabetize_file(filename)
+            tools.alphabetize_file(tools.filename)
         elif choice == "17":
             tools.searchStr(tools.filename)
         elif choice == "18":
@@ -73,7 +73,7 @@ def menuUse(choice):
         elif choice == "19":
             tools.replaceString(tools.filename)
         elif choice == "20":
-            tools.rickAstley(filename)
+            tools.rickAstley(tools.filename)
         elif choice == "21":
             print("In Progress")
         elif choice == "22":
