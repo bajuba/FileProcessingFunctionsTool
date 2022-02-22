@@ -163,6 +163,7 @@ def removeSpaces(filename):
         f.writelines(lines)
         f.close
 
+
 #Copy file
 #Option 23
 def copyFile(filename):
@@ -178,8 +179,7 @@ def copyFile(filename):
         file2.close()
         print(f'The file "{filename}" was copied and the new file is called "{filename2}".')
 
-# Doubles every contiguous number (2 or more int in a row, not same numbers)
-# Also Camel Casing for py?
+# Doubles every number, contiguous numbers are doubled as one number
 # Option 13
 def double_contiguous_numbers(filename):
   with open(filename,'r+') as f:
@@ -192,16 +192,51 @@ def double_contiguous_numbers(filename):
       if char.isdigit():
         digit_temp += char
       elif char.isdigit() == False:
-        if digit_temp != "" and len(digit_temp)>1:
+        if digit_temp != "":
           digit_temp = int(digit_temp) * 2
-          content_updated += str(digit_temp)
-        elif digit_temp != "" and len(digit_temp)==1:
           content_updated += str(digit_temp)
         digit_temp = ""
         content_updated += str(char)
     f.write(content_updated)
     f.close
 
+
+# Capitalize every third letter in the file
+# Option 12
+def capitalize_every_third(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ""
+    i = 0
+    for char in file_raw:
+      if char.isalpha():
+        i += 1
+        if i%3 == 0:
+          char = char.capitalize()
+          content_updated += str(char)
+        else:
+          content_updated += str(char)
+      else:
+        content_updated += str(char)
+    f.write(content_updated)
+    f.close
+
+
+# Alphabetizes file by line
+# Option 16
+def alphabetize_file(filename):
+  with open(filename,'r+') as f:
+    sorted_lines = list()
+    for line in f:
+      sorted_lines.append(line.strip())  
+    sorted_lines.sort()
+    f.truncate(0)
+    f.seek(0)
+    for item in sorted_lines:
+      f.write(item + '\n')
+    f.close
 #Search a file for a string
 #Option 17
 def searchStr(filename):
