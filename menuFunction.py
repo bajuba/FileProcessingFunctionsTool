@@ -55,7 +55,7 @@ def menuUse(choice):
         elif choice == "10":
             print("In Progress")
         elif choice == "11":
-            print("In Progress")
+            tools.abcSpace(filename)
         elif choice == "12":
             print("In Progress")
         elif choice == "13":
@@ -73,7 +73,7 @@ def menuUse(choice):
         elif choice == "19":
             print("In Progress")
         elif choice == "20":
-            print("In Progress")
+            tools.rickAstley(filename)
         elif choice == "21":
             print("In Progress")
         elif choice == "22":
