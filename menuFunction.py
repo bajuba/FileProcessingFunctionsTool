@@ -1,4 +1,4 @@
-import tools
+import tools 
 
 #Menu description
 menuOptions = {
@@ -31,59 +31,60 @@ menuOptions = {
 }
 
 #Menu functionality: Call functions here
-def menuUse(choice, filename):
+def menuUse(choice):
+    #Use tools.filename to access the most recent filename
     while choice != "q":
         if choice == "1":
             tools.chooseFile()
         elif choice == "2":
             print("In Progress")
         elif choice == "3":
-            tools.capitalizeAllLetters(filename)
+            tools.capitalizeAllLetters(tools.filename)
         elif choice == "4":
-            print("In Progress")
+            tools.removeSpaces(filename)
         elif choice == "5":
-            print("In Progress")
+            tools.removeThe(tools.filename)
         elif choice == "6":
             print("In Progress")
         elif choice == "7":
             print("In Progress")
         elif choice == "8":
-            tools.removeEveryOtherChar(filename)
+            tools.removeEveryOtherChar(tools.filename)
         elif choice == "9":
             print("In Progress")
         elif choice == "10":
             tools.capitalizeAllLetters(tools.filename)
             print("In Progress")
         elif choice == "11":
-            print("In Progress")
+            tools.abcSpace(filename)
         elif choice == "12":
-            print("In Progress")
+            tools.capitalize_every_third(filename)
         elif choice == "13":
-            print("In Progress")
+            tools.double_contiguous_numbers(tools.filename)
         elif choice == "14":
             print("In Progress")
         elif choice == "15":
             print("In Progress")
         elif choice == "16":
-            print("In Progress")
+            tools.alphabetize_file(filename)
         elif choice == "17":
-            print("In Progress")
+            tools.searchStr(tools.filename)
         elif choice == "18":
             print("In Progress")
         elif choice == "19":
             print("In Progress")
         elif choice == "20":
-            print("In Progress")
+            tools.rickAstley(filename)
         elif choice == "21":
             print("In Progress")
         elif choice == "22":
             print("In Progress")
         elif choice == "23":
-            print("In Progress")
+            tools.copyFile(filename)
         elif choice == "24":
             print("In Progress")
         elif choice == "25":
-            print("In Progress")
+            tools.splitFile(tools.filename)
         elif choice == "26":
             print("In Progress")
         elif choice == "q":
@@ -91,8 +92,9 @@ def menuUse(choice, filename):
             exit()
         else:
             print("Please enter a valid response.")
+        input("Press enter to continue...")
         printMenu()
-        choice = input("\nWhat would you like to do?")
+        choice = input("\nWhat would you like to do?\n")
 
 #Prints all menu Options
 def printMenu():
@@ -104,7 +106,7 @@ def printMenu():
 #Menu Start
 def menu():
     print("\nChoose how you would like to use your files.")
-    filename = tools.chooseFile()
+    tools.chooseFile()
     printMenu()
     choice = input("\nWhat would you like to do?\n")
-    menuUse(choice, filename)
+    menuUse(choice)
