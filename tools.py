@@ -80,6 +80,15 @@ def replaceAll(filename):
     with open(filename, 'w') as f:
         replace = input("Enter what you would like to replace this text with: \n")
         f.write(replace)
+#Removes all spaces from a text file
+#Option 4
+def removeSpaces(filename):
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+    lines = [line.replace(' ','') for line in lines]
+    with open(filename, 'w') as f:
+        f.writelines(lines)
+        f.close
 
 #Copy file
 #Option 23
