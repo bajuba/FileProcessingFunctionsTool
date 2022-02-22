@@ -57,15 +57,15 @@ def menuUse(choice):
         elif choice == "11":
             print("In Progress")
         elif choice == "12":
-            tools.capitalize_every_third(filename)
+            tools.capitalize_every_third(tools.filename)
         elif choice == "13":
             tools.double_contiguous_numbers(tools.filename)
         elif choice == "14":
             print("In Progress")
         elif choice == "15":
-            print("In Progress")
+            tools.add_random_char(tools.filename)
         elif choice == "16":
-            tools.alphabetize_file(filename)
+            tools.alphabetize_file(tools.filename)
         elif choice == "17":
             tools.searchStr(tools.filename)
         elif choice == "18":
