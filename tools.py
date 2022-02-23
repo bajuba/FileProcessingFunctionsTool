@@ -63,11 +63,16 @@ def removeEveryOtherChar(filename):
 #Replace every character in the file with it's ascii value
 #Option 10
 def replaceCharacterWithAscii(filename):
-    contentUpdated = ""
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        contentUpdated = ""
         for char in content:
             contentUpdated += str(ord(char)) + '\n'
         f.write(contentUpdated)
         f.close
+
 #Add Rick Astley lyrics to file
 #option 20
 def rickAstley(filename):

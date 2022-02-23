@@ -53,7 +53,8 @@ def menuUse(choice):
         elif choice == "9":
             print("In Progress")
         elif choice == "10":
-            tools.capitalizeAllLetters(tools.filename)
+            #tools.capitalizeAllLetters(tools.filename)
+            tools.replaceCharacterWithAscii(tools.filename)
             print("In Progress")
         elif choice == "11":
             tools.abcSpace(filename)
