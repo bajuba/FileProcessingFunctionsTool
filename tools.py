@@ -1,4 +1,3 @@
-
 import os
 from math import floor
 import random
@@ -55,7 +54,6 @@ def removeEveryOtherChar(filename):
             else:
                 contentUpdated += char
         f.write(contentUpdated)
-        f.close
 
 
 
@@ -70,7 +68,6 @@ def reverseFile(filename):
         for line in reversed(content):
             contentUpdated += line
         f.write(contentUpdated)
-        f.close
 
 
 
@@ -112,63 +109,33 @@ Never gonna run around and desert you
 Never gonna make you cry
 Never gonna say goodbye
 Never gonna tell a lie and hurt you
+"""
 
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
 
-(Ooh, give you up)
-(Ooh, give you up)
-Never gonna give, never gonna give
-(Give you up)
-Never gonna give, never gonna give
-(Give you up)
-
-We've known each other for so long
-Your heart's been aching, but
-You're too shy to say it
-Inside, we both know what's been going on
-We know the game and we're gonna play it
-
-I just wanna tell you how I'm feeling
-Gotta make you understand
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you"""
-        f.write(lyrics)
-        f.close()
-
-#Remove every character except abc and spcae from file
-#Option 11
-def abcSpace(filename):
-    with open(filename, mode='r+') as f:
+#Replace all for a specific string
+#Option 19
+def replaceString(filename):
+    with open(filename, 'r+') as f:
         content = f.read()
-        whitelist = set('abc ABC')
-        updated = ''.join(filter(whitelist.__contains__, content))
-        f.truncate(0)
-        f.write(updated)
-        f.close
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            f.truncate(0)
+            f.seek(0)
+            replacement = input("\nEnter what you would like to replace the phrase with.\n")
+            contentUpdated = content.replace(phrase, replacement)
+            f.write(contentUpdated)
+            print(f"You have replaced {phrase} with {replacement}.\n")
+        else:
+            print("This string was not found in the file.")
+            f.seek(0)
+
+
+#Replace all
+#Option 22
+def replaceAll(filename):
+    with open(filename, 'w') as f:
+        replace = input("Enter what you would like to replace this text with: \n")
+        f.write(replace)
 
 #Removes all spaces from a text file
 #Option 4
@@ -254,6 +221,7 @@ def alphabetize_file(filename):
     for item in sorted_lines:
       f.write(item + '\n')
     f.close
+
 #Search a file for a string
 #Option 17
 def searchStr(filename):
@@ -262,9 +230,10 @@ def searchStr(filename):
         phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
         if phrase in content:
             print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
+            return True
         else:
             print(f"\nFile {filename} does not contain '{phrase}'.\n")
-        f.close()
+            return False
 
 #Make file into two files
 #Option 25
@@ -278,10 +247,8 @@ def splitFile(filename):
         contentNew = content[num:len(content)]
         contentUpdated = content[0:num]
         f.write(contentUpdated)
-        f.close()
     newFile = open(genRandomName(), "a")
     newFile.write(contentNew)
-    newFile.close()
 
 #Generate Random File Name
 def genRandomName():
@@ -292,3 +259,29 @@ def genRandomName():
         cha = arr[rand]
         newName += cha
     return newName
+
+
+# Add random amounts of random characters throughout file randomly, number range can be tweaked
+# Option 15
+def add_random_char(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ''
+    arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    rand_char = ''
+    for char in file_raw:
+      rand_int = random.randrange(0,25)
+      if rand_int == 10:
+        content_updated += char
+        rand_loop = random.randrange(1,10)
+        for i in range(rand_loop):
+          rand_loop_three = random.randrange(0,25)
+          rand_char += arr[rand_loop_three]
+          content_updated += rand_char
+          rand_char = ''
+      else:
+        content_updated += char
+    f.write(content_updated)
+    f.close
