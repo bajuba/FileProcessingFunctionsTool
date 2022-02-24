@@ -57,6 +57,23 @@ def removeEveryOtherChar(filename):
         f.write(contentUpdated)
         f.close
 
+
+
+#Reverse the file
+#Option 6
+def reverseFile(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        contentUpdated = ""
+        for line in reversed(content):
+            contentUpdated += line
+        f.write(contentUpdated)
+        f.close
+
+
+
 #Add Rick Astley lyrics to file
 #option 20
 def rickAstley(filename):

@@ -45,7 +45,7 @@ def menuUse(choice):
         elif choice == "5":
             tools.removeThe(tools.filename)
         elif choice == "6":
-            print("In Progress")
+            tools. reverseFile(tools.filename)
         elif choice == "7":
             print("In Progress")
         elif choice == "8":
