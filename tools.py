@@ -1,4 +1,3 @@
-
 import os
 from math import floor
 import random
@@ -55,103 +54,31 @@ def removeEveryOtherChar(filename):
             else:
                 contentUpdated += char
         f.write(contentUpdated)
-        f.close
 
-#Add Rick Astley lyrics to file
-#option 20
-def rickAstley(filename):
-    with open(filename, mode='a+') as f:
-        f.seek(0)
-        data = f.read(100)
-        if len(data) > 0:
-            f.write("\n")
-        lyrics = """We're no strangers to love
-You know the rules and so do I
-A full commitment's what I'm thinking of
-You wouldn't get this from any other guy
-
-I just wanna tell you how I'm feeling
-Gotta make you understand
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-We've known each other for so long
-Your heart's been aching, but
-You're too shy to say it
-Inside, we both know what's been going on
-We know the game and we're gonna play it
-
-And if you ask me how I'm feeling
-Don't tell me you're too blind to see
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-(Ooh, give you up)
-(Ooh, give you up)
-Never gonna give, never gonna give
-(Give you up)
-Never gonna give, never gonna give
-(Give you up)
-
-We've known each other for so long
-Your heart's been aching, but
-You're too shy to say it
-Inside, we both know what's been going on
-We know the game and we're gonna play it
-
-I just wanna tell you how I'm feeling
-Gotta make you understand
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you
-
-Never gonna give you up
-Never gonna let you down
-Never gonna run around and desert you
-Never gonna make you cry
-Never gonna say goodbye
-Never gonna tell a lie and hurt you"""
-        f.write(lyrics)
-        f.close()
-
-#Remove every character except abc and spcae from file
-#Option 11
-def abcSpace(filename):
-    with open(filename, mode='r+') as f:
+#Replace all for a specific string
+#Option 19
+def replaceString(filename):
+    with open(filename, 'r+') as f:
         content = f.read()
-        whitelist = set('abc ABC')
-        updated = ''.join(filter(whitelist.__contains__, content))
-        f.truncate(0)
-        f.write(updated)
-        f.close
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            f.truncate(0)
+            f.seek(0)
+            replacement = input("\nEnter what you would like to replace the phrase with.\n")
+            contentUpdated = content.replace(phrase, replacement)
+            f.write(contentUpdated)
+            print(f"You have replaced {phrase} with {replacement}.\n")
+        else:
+            print("This string was not found in the file.")
+            f.seek(0)
+
+
+#Replace all
+#Option 22
+def replaceAll(filename):
+    with open(filename, 'w') as f:
+        replace = input("Enter what you would like to replace this text with: \n")
+        f.write(replace)
 
 #Removes all spaces from a text file
 #Option 4
@@ -237,6 +164,7 @@ def alphabetize_file(filename):
     for item in sorted_lines:
       f.write(item + '\n')
     f.close
+
 #Search a file for a string
 #Option 17
 def searchStr(filename):
@@ -245,9 +173,10 @@ def searchStr(filename):
         phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
         if phrase in content:
             print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
+            return True
         else:
             print(f"\nFile {filename} does not contain '{phrase}'.\n")
-        f.close()
+            return False
 
 #Make file into two files
 #Option 25
@@ -261,10 +190,8 @@ def splitFile(filename):
         contentNew = content[num:len(content)]
         contentUpdated = content[0:num]
         f.write(contentUpdated)
-        f.close()
     newFile = open(genRandomName(), "a")
     newFile.write(contentNew)
-    newFile.close()
 
 #Generate Random File Name
 def genRandomName():
