@@ -202,3 +202,29 @@ def genRandomName():
         cha = arr[rand]
         newName += cha
     return newName
+
+
+# Add random amounts of random characters throughout file randomly, number range can be tweaked
+# Option 15
+def add_random_char(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ''
+    arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    rand_char = ''
+    for char in file_raw:
+      rand_int = random.randrange(0,25)
+      if rand_int == 10:
+        content_updated += char
+        rand_loop = random.randrange(1,10)
+        for i in range(rand_loop):
+          rand_loop_three = random.randrange(0,25)
+          rand_char += arr[rand_loop_three]
+          content_updated += rand_char
+          rand_char = ''
+      else:
+        content_updated += char
+    f.write(content_updated)
+    f.close

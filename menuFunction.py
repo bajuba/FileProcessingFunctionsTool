@@ -63,7 +63,7 @@ def menuUse(choice):
         elif choice == "14":
             print("In Progress")
         elif choice == "15":
-            print("In Progress")
+            tools.add_random_char(tools.filename)
         elif choice == "16":
             tools.alphabetize_file(tools.filename)
         elif choice == "17":
