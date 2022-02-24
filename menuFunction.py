@@ -61,7 +61,7 @@ def menuUse(choice):
         elif choice == "13":
             tools.double_contiguous_numbers(tools.filename)
         elif choice == "14":
-            print("In Progress")
+            tools.theIncident(tools.filename)
         elif choice == "15":
             tools.add_random_char(tools.filename)
         elif choice == "16":

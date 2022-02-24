@@ -24,9 +24,10 @@ def capitalizeAllLetters(filename):
        contentUpdated = content.upper()
        f.write(contentUpdated)
        f.close
-        
-#Remove all instances of the word 'the' from file
-#Option 5
+
+
+# Remove all instances of the word 'the' from file
+# Option 5
 def removeThe(filename):
     with open(filename, mode='r+') as f:
         content = f.read()
@@ -34,8 +35,18 @@ def removeThe(filename):
         f.seek(0)
         contentUpdated = content.replace("the", "")
         f.write(contentUpdated)
-        f.close
-        
+
+
+# Add 'ever since the incident' before each '.' in file
+# Option 14
+def theIncident(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        contentUpdated = content.replace(".", " ever since the incident.")
+        f.write(contentUpdated)
+
 
 #Removes every other character from a text file
 #Option 8
