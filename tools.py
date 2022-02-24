@@ -25,6 +25,15 @@ def capitalizeAllLetters(filename):
        f.write(contentUpdated)
        f.close
 
+#Removes all spaces from a text file
+#Option 4
+def removeSpaces(filename):
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+    lines = [line.replace(' ','') for line in lines]
+    with open(filename, 'w') as f:
+        f.writelines(lines)
+        f.close
 
 # Remove all instances of the word 'the' from file
 # Option 5
@@ -36,16 +45,18 @@ def removeThe(filename):
         contentUpdated = content.replace("the", "")
         f.write(contentUpdated)
 
-
-# Add 'ever since the incident' before each '.' in file
-# Option 14
-def theIncident(filename):
+#Reverse the file
+#Option 6
+def reverseFile(filename):
     with open(filename, mode='r+') as f:
         content = f.read()
         f.truncate(0)
         f.seek(0)
-        contentUpdated = content.replace(".", " ever since the incident.")
+        contentUpdated = ""
+        for line in reversed(content):
+            contentUpdated += line
         f.write(contentUpdated)
+
 
 
 #Removes every other character from a text file
@@ -66,20 +77,127 @@ def removeEveryOtherChar(filename):
                 contentUpdated += char
         f.write(contentUpdated)
 
+# Capitalize every third letter in the file
+# Option 12
+def capitalize_every_third(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ""
+    i = 0
+    for char in file_raw:
+      if char.isalpha():
+        i += 1
+        if i%3 == 0:
+          char = char.capitalize()
+          content_updated += str(char)
+        else:
+          content_updated += str(char)
+      else:
+        content_updated += str(char)
+    f.write(content_updated)
+    f.close
 
+# Doubles every number, contiguous numbers are doubled as one number
+# Option 13
+def double_contiguous_numbers(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ""
+    digit_temp = ""
+    for char in file_raw:
+      if char.isdigit():
+        digit_temp += char
+      elif char.isdigit() == False:
+        if digit_temp != "":
+          digit_temp = int(digit_temp) * 2
+          content_updated += str(digit_temp)
+        digit_temp = ""
+        content_updated += str(char)
+    f.write(content_updated)
+    f.close
 
-#Reverse the file
-#Option 6
-def reverseFile(filename):
+# Add 'ever since the incident' before each '.' in file
+# Option 14
+def theIncident(filename):
     with open(filename, mode='r+') as f:
         content = f.read()
         f.truncate(0)
         f.seek(0)
-        contentUpdated = ""
-        for line in reversed(content):
-            contentUpdated += line
+        contentUpdated = content.replace(".", " ever since the incident.")
         f.write(contentUpdated)
 
+# Add random amounts of random characters throughout file randomly, number range can be tweaked
+# Option 15
+def add_random_char(filename):
+  with open(filename,'r+') as f:
+    file_raw = f.read()
+    f.truncate(0)
+    f.seek(0)
+    content_updated = ''
+    arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    rand_char = ''
+    for char in file_raw:
+      rand_int = random.randrange(0,25)
+      if rand_int == 10:
+        content_updated += char
+        rand_loop = random.randrange(1,10)
+        for i in range(rand_loop):
+          rand_loop_three = random.randrange(0,25)
+          rand_char += arr[rand_loop_three]
+          content_updated += rand_char
+          rand_char = ''
+      else:
+        content_updated += char
+    f.write(content_updated)
+    f.close
+
+# Alphabetizes file by line
+# Option 16
+def alphabetize_file(filename):
+  with open(filename,'r+') as f:
+    sorted_lines = list()
+    for line in f:
+      sorted_lines.append(line.strip())  
+    sorted_lines.sort()
+    f.truncate(0)
+    f.seek(0)
+    for item in sorted_lines:
+      f.write(item + '\n')
+    f.close
+
+#Search a file for a string
+#Option 17
+def searchStr(filename):
+    with open(filename, mode='r') as f:
+        content = f.read()
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
+            return True
+        else:
+            print(f"\nFile {filename} does not contain '{phrase}'.\n")
+            return False
+
+#Replace all for a specific string
+#Option 19
+def replaceString(filename):
+    with open(filename, 'r+') as f:
+        content = f.read()
+        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
+        if phrase in content:
+            f.truncate(0)
+            f.seek(0)
+            replacement = input("\nEnter what you would like to replace the phrase with.\n")
+            contentUpdated = content.replace(phrase, replacement)
+            f.write(contentUpdated)
+            print(f"You have replaced {phrase} with {replacement}.\n")
+        else:
+            print("This string was not found in the file.")
+            f.seek(0)
 
 
 #Add Rick Astley lyrics to file
@@ -123,40 +241,12 @@ Never gonna tell a lie and hurt you
 """
 
 
-#Replace all for a specific string
-#Option 19
-def replaceString(filename):
-    with open(filename, 'r+') as f:
-        content = f.read()
-        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
-        if phrase in content:
-            f.truncate(0)
-            f.seek(0)
-            replacement = input("\nEnter what you would like to replace the phrase with.\n")
-            contentUpdated = content.replace(phrase, replacement)
-            f.write(contentUpdated)
-            print(f"You have replaced {phrase} with {replacement}.\n")
-        else:
-            print("This string was not found in the file.")
-            f.seek(0)
-
-
 #Replace all
 #Option 22
 def replaceAll(filename):
     with open(filename, 'w') as f:
         replace = input("Enter what you would like to replace this text with: \n")
         f.write(replace)
-
-#Removes all spaces from a text file
-#Option 4
-def removeSpaces(filename):
-    with open(filename, 'r') as f:
-        lines = f.readlines()
-    lines = [line.replace(' ','') for line in lines]
-    with open(filename, 'w') as f:
-        f.writelines(lines)
-        f.close
 
 
 #Copy file
@@ -174,77 +264,6 @@ def copyFile(filename):
         file2.close()
         print(f'The file "{filename}" was copied and the new file is called "{filename2}".')
 
-# Doubles every number, contiguous numbers are doubled as one number
-# Option 13
-def double_contiguous_numbers(filename):
-  with open(filename,'r+') as f:
-    file_raw = f.read()
-    f.truncate(0)
-    f.seek(0)
-    content_updated = ""
-    digit_temp = ""
-    for char in file_raw:
-      if char.isdigit():
-        digit_temp += char
-      elif char.isdigit() == False:
-        if digit_temp != "":
-          digit_temp = int(digit_temp) * 2
-          content_updated += str(digit_temp)
-        digit_temp = ""
-        content_updated += str(char)
-    f.write(content_updated)
-    f.close
-
-
-# Capitalize every third letter in the file
-# Option 12
-def capitalize_every_third(filename):
-  with open(filename,'r+') as f:
-    file_raw = f.read()
-    f.truncate(0)
-    f.seek(0)
-    content_updated = ""
-    i = 0
-    for char in file_raw:
-      if char.isalpha():
-        i += 1
-        if i%3 == 0:
-          char = char.capitalize()
-          content_updated += str(char)
-        else:
-          content_updated += str(char)
-      else:
-        content_updated += str(char)
-    f.write(content_updated)
-    f.close
-
-
-# Alphabetizes file by line
-# Option 16
-def alphabetize_file(filename):
-  with open(filename,'r+') as f:
-    sorted_lines = list()
-    for line in f:
-      sorted_lines.append(line.strip())  
-    sorted_lines.sort()
-    f.truncate(0)
-    f.seek(0)
-    for item in sorted_lines:
-      f.write(item + '\n')
-    f.close
-
-#Search a file for a string
-#Option 17
-def searchStr(filename):
-    with open(filename, mode='r') as f:
-        content = f.read()
-        phrase = input("\nEnter a phrase to see if it is contained within the file.\n")
-        if phrase in content:
-            print(f"\nYour phrase '{phrase}' is contained within file {filename}.\n")
-            return True
-        else:
-            print(f"\nFile {filename} does not contain '{phrase}'.\n")
-            return False
 
 #Make file into two files
 #Option 25
@@ -270,29 +289,3 @@ def genRandomName():
         cha = arr[rand]
         newName += cha
     return newName
-
-
-# Add random amounts of random characters throughout file randomly, number range can be tweaked
-# Option 15
-def add_random_char(filename):
-  with open(filename,'r+') as f:
-    file_raw = f.read()
-    f.truncate(0)
-    f.seek(0)
-    content_updated = ''
-    arr = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
-    rand_char = ''
-    for char in file_raw:
-      rand_int = random.randrange(0,25)
-      if rand_int == 10:
-        content_updated += char
-        rand_loop = random.randrange(1,10)
-        for i in range(rand_loop):
-          rand_loop_three = random.randrange(0,25)
-          rand_char += arr[rand_loop_three]
-          content_updated += rand_char
-          rand_char = ''
-      else:
-        content_updated += char
-    f.write(content_updated)
-    f.close
