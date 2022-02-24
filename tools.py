@@ -55,6 +55,63 @@ def removeEveryOtherChar(filename):
                 contentUpdated += char
         f.write(contentUpdated)
 
+
+
+#Reverse the file
+#Option 6
+def reverseFile(filename):
+    with open(filename, mode='r+') as f:
+        content = f.read()
+        f.truncate(0)
+        f.seek(0)
+        contentUpdated = ""
+        for line in reversed(content):
+            contentUpdated += line
+        f.write(contentUpdated)
+
+
+
+#Add Rick Astley lyrics to file
+#option 20
+def rickAstley(filename):
+    with open(filename, mode='a+') as f:
+        f.seek(0)
+        data = f.read(100)
+        if len(data) > 0:
+            f.write("\n")
+        lyrics = """We're no strangers to love
+You know the rules and so do I
+A full commitment's what I'm thinking of
+You wouldn't get this from any other guy
+
+I just wanna tell you how I'm feeling
+Gotta make you understand
+
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+
+We've known each other for so long
+Your heart's been aching, but
+You're too shy to say it
+Inside, we both know what's been going on
+We know the game and we're gonna play it
+
+And if you ask me how I'm feeling
+Don't tell me you're too blind to see
+
+Never gonna give you up
+Never gonna let you down
+Never gonna run around and desert you
+Never gonna make you cry
+Never gonna say goodbye
+Never gonna tell a lie and hurt you
+"""
+
+
 #Replace all for a specific string
 #Option 19
 def replaceString(filename):
