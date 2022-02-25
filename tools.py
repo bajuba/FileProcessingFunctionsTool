@@ -117,6 +117,9 @@ def double_contiguous_numbers(filename):
           content_updated += str(digit_temp)
         digit_temp = ""
         content_updated += str(char)
+    if digit_temp != "":
+      digit_temp = int(digit_temp) * 2
+      content_updated += str(digit_temp)
     f.write(content_updated)
     f.close
 
