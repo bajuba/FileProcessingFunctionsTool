@@ -99,6 +99,21 @@ def capitalize_every_third(filename):
     f.write(content_updated)
     f.close
 
+
+#Copy file
+#Option 23
+def copy_file(filename):
+    with open(filename, 'r') as file:
+        clear_console()
+        filename_2 = filename + "_new"
+        file_2 = open(filename_2, "w")
+        file_2 = file
+        file_2.close()
+        print(f'The file "{filename}" was copied and the new file is called "{filename_2}".')
+
+
+# Doubles every contiguous number (2 or more int in a row, not same numbers)
+# Also Camel Casing for py?
 # Doubles every number, contiguous numbers are doubled as one number
 # Option 13
 def double_contiguous_numbers(filename):
@@ -294,3 +309,11 @@ def genRandomName():
         cha = arr[rand]
         newName += cha
     return newName
+
+
+#Clear Console
+def clear_console():
+    try:
+        os.system('cls')#Clear console Windows
+    except:
+        os.system('clear')#Clear console Linux

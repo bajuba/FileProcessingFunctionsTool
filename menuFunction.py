@@ -79,7 +79,7 @@ def menuUse(choice):
         elif choice == "22":
             tools.replaceAll(tools.filename)
         elif choice == "23":
-            tools.copyFile(tools.filename)
+            tools.copy_file(tools.filename)
         elif choice == "24":
             print("In Progress")
         elif choice == "25":
