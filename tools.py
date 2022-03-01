@@ -60,18 +60,15 @@ def removeEveryOtherChar(filename):
 
 #Copy file
 #Option 23
-def copyFile(filename):
+def copy_file(filename):
     with open(filename, 'r') as file:
-        try:
-            os.system('cls')#Clear console Windows
-        except:
-            os.system('clear')#Clear console Linux
-        filename2 = filename + "_new"
-        file2 = open(filename2, "w")
-        file2 = file
-        file.close()
-        file2.close()
-        print(f'The file "{filename}" was copied and the new file is called "{filename2}".')
+        clear_console()
+        filename_2 = filename + "_new"
+        file_2 = open(filename_2, "w")
+        file_2 = file
+        file_2.close()
+        print(f'The file "{filename}" was copied and the new file is called "{filename_2}".')
+
 
 # Doubles every contiguous number (2 or more int in a row, not same numbers)
 # Also Camel Casing for py?
@@ -135,3 +132,11 @@ def genRandomName():
         cha = arr[rand]
         newName += cha
     return newName
+
+
+#Clear Console
+def clear_console():
+    try:
+        os.system('cls')#Clear console Windows
+    except:
+        os.system('clear')#Clear console Linux
