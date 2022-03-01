@@ -41,11 +41,11 @@ def menuUse(choice):
         elif choice == "3":
             tools.capitalizeAllLetters(tools.filename)
         elif choice == "4":
-            print("In Progress")
+            tools.removeSpaces(tools.filename)
         elif choice == "5":
             tools.removeThe(tools.filename)
         elif choice == "6":
-            print("In Progress")
+            tools. reverseFile(tools.filename)
         elif choice == "7":
             print("In Progress")
         elif choice == "8":
@@ -55,29 +55,29 @@ def menuUse(choice):
         elif choice == "10":
             print("In Progress")
         elif choice == "11":
-            print("In Progress")
+            tools.abcSpace(tools.filename)
         elif choice == "12":
-            print("In Progress")
+            tools.capitalize_every_third(tools.filename)
         elif choice == "13":
             tools.double_contiguous_numbers(tools.filename)
         elif choice == "14":
-            print("In Progress")
+            tools.theIncident(tools.filename)
         elif choice == "15":
-            print("In Progress")
+            tools.add_random_char(tools.filename)
         elif choice == "16":
-            print("In Progress")
+            tools.alphabetize_file(tools.filename)
         elif choice == "17":
             tools.searchStr(tools.filename)
         elif choice == "18":
             print("In Progress")
         elif choice == "19":
-            print("In Progress")
+            tools.replaceString(tools.filename)
         elif choice == "20":
-            print("In Progress")
+            tools.rickAstley(tools.filename)
         elif choice == "21":
             print("In Progress")
         elif choice == "22":
-            print("In Progress")
+            tools.replaceAll(tools.filename)
         elif choice == "23":
             tools.copy_file(tools.filename)
         elif choice == "24":
