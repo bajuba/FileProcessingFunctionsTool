@@ -333,7 +333,4 @@ def genRandomName():
 
 #Clear Console
 def clear_console():
-    try:
-        os.system('cls')#Clear console Windows
-    except:
-        os.system('clear')#Clear console Linux
+    os.system('cls' if os.name=='nt' else 'clear')
