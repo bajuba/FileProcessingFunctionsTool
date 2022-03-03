@@ -37,13 +37,14 @@ def removeSpaces(filename):
 
 # Remove all instances of the word 'the' from file
 # Option 5
-def removeThe(filename):
+def remove_the(filename):
     with open(filename, mode='r+') as f:
+        clear_console()
         content = f.read()
         f.truncate(0)
         f.seek(0)
-        contentUpdated = content.replace("the", "")
-        f.write(contentUpdated)
+        content_updated = content.replace("the", "")
+        f.write(content_updated)
 
 #Reverse the file
 #Option 6
@@ -158,13 +159,14 @@ def double_contiguous_numbers(filename):
 
 # Add 'ever since the incident' before each '.' in file
 # Option 14
-def theIncident(filename):
+def the_incident(filename):
     with open(filename, mode='r+') as f:
+        clear_console()
         content = f.read()
         f.truncate(0)
         f.seek(0)
-        contentUpdated = content.replace(".", " ever since the incident.")
-        f.write(contentUpdated)
+        content_updated = content.replace(".", " ever since the incident.")
+        f.write(content_updated)
 
 # Add random amounts of random characters throughout file randomly, number range can be tweaked
 # Option 15
