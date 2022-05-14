@@ -1,6 +1,10 @@
 import os
 from math import floor
 import random
+# These 3 modules below need to be imported for web/regex functionality
+import requests # for http/https curls (get)
+from bs4 import BeautifulSoup # html parsing/web scraping tool
+import re # Regular Expression (RegEx) tools
 
 #file variable used in menuFunction and chooseFile
 filename = ""
@@ -246,7 +250,22 @@ def rickAstley(filename):
         data = f.read(100)
         if len(data) > 0:
             f.write("\n")
-        lyrics = """We're no strangers to love
+        # Adding optional download from Internet/Web scraping
+        # vs. hard-coded lyrics of Rick Astley's song
+        # Edits: John R. Hampton (Github - Grok42)
+        getweb = input("Do you want to download lyrics from the internet?: \n")
+        if re.match('(Y|y)',getweb):
+            # My URL is the lyrics copy & pasted into my Poetry/Lit Hobbycraft site
+            url = "https://www.deviantart.com/maggotsx/art/Never-Gonna-Give-You-Up-916069850" 
+            r = requests.get(url)
+            soup = BeautifulSoup(r.content, 'html5lib')
+            lyrics = soup.find_all('span', {'class':re.compile('.*public-DraftStyleDefault-ltr')})
+            for line in lyrics:
+                rickroll = re.sub('\<[^\>\<]+\>','',str(line))    
+                f.write(rickroll + "\n")
+        else:
+            # Else, Continue with original hard-coded lyrics
+            lyrics = """We're no strangers to love
 You know the rules and so do I
 A full commitment's what I'm thinking of
 You wouldn't get this from any other guy
@@ -277,7 +296,7 @@ Never gonna make you cry
 Never gonna say goodbye
 Never gonna tell a lie and hurt you
 """
-        f.write(lyrics)
+            f.write(lyrics)
         f.close
 
 
